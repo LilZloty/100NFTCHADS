@@ -978,7 +978,7 @@ color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url(src/assets/americanpsycho.gif);
+    background-image: url(americanpsycho.gif);
     background-size: cover;
     width: 100%;
     background-position: center;
