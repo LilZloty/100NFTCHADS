@@ -1,0 +1,26 @@
+body,
+html {
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  font-family: Cyber;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: Cyber;
+  src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
+  font-display: swap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
