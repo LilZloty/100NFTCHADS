@@ -146,6 +146,7 @@ getTotalMinted();
 
   useEffect(() => {
         checkIfWalletIsConnected();
+	 getTotalNFTsMintedSoFar();
     }, [])
 
 
