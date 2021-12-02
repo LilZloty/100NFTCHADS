@@ -20,6 +20,7 @@ const App = () => {
 
     const [currentAccount, setCurrentAccount] = useState("");
     const [nftsMinted, setNftsMinted] = useState(0);
+    const [numberOFNFTs, setnumberOFNFTs] = useState("");
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
       const { ethereum } = window;
