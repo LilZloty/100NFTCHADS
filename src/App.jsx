@@ -11,7 +11,7 @@ const TWITTER_HANDLE2 = '_buildspace';
 const TWITTER_HANDLE = 'elKingRagnar';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 const TWITTER_LINK2 = `https://twitter.com/${TWITTER_HANDLE2}`;
-const OPENSEA_LINK = 'https://testnets.opensea.io/collection/100nftchads-cboo7fo8us';
+const OPENSEA_LINK = 'https://testnets.opensea.io/collection/100nftchads-wxlocfoxnv';
 const TOTAL_MINT_COUNT = 100;
 
 const CONTRACT_ADDRESS = "0x4F422B0D665F48Df15d56ad5aAc6787F846Ac3F4";
