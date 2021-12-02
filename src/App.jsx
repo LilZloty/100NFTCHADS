@@ -20,6 +20,7 @@ const App = () => {
 
     const [currentAccount, setCurrentAccount] = useState("");
     const [numberOFNFTs, setnumberOFNFTs] = useState("");
+    const [nftsMinted, setNftsMinted] = useState(0);
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
       const { ethereum } = window;
@@ -69,6 +70,24 @@ const App = () => {
   }
 
 
+
+  const getTotalMinted = async () => {
+    try {
+      const { ethereum } = window;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myEpicNft.abi, signer);
+        console.log('Going to pop wallet now to pay gas...');
+        const nftsMinted = await connectedContract.getTotalNFTsMintedSoFar();
+        setNftsMinted(nftsMinted);
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
   
 
   // Setup our listener.
@@ -163,11 +182,19 @@ const App = () => {
 
  const renderMintUI = () => (
     <button 
-       onClick={askContractToMintNft} className="cta-button mint-button">
+       onClick={askContractToMintNft} 
+      className={`cta-button connect-wallet-button ${isMinting || nftsMinted >= TOTAL_MINT_COUNT ? 'cta-button-disabled' : ''}`}>
+      {isMinting ? 'Minting...' : 'Mint'}
     </button>
   )
 
-
+  const renderTotalMinted = () => {
+    return (
+      <div className="mintCountContainer">
+        <div className="mintCountBadge">{`Minted: ${nftsMinted} / ${TOTAL_MINT_COUNT}`}</div>
+      </div>
+    )
+  }
 
   return (
     <div className="App">
