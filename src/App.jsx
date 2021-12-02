@@ -151,7 +151,7 @@ getTotalMinted();
 
   useEffect(() => {
         checkIfWalletIsConnected();
-	 getTotalNFTsMintedSoFar();
+	       getTotalNFTsMintedSoFar();
     }, [])
 
 
@@ -163,9 +163,7 @@ getTotalMinted();
 
  const renderMintUI = () => (
     <button 
-      onClick={askContractToMintNft} 
-      className={`cta-button connect-wallet-button ${isMinting || nftsMinted >= TOTAL_MINT_COUNT ? 'cta-button-disabled' : ''}`}>
-      {isMinting ? 'Minting...' : 'Mint'}
+       onClick={askContractToMintNft} className="cta-button mint-button">
     </button>
   )
 
