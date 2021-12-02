@@ -14,8 +14,7 @@ const TWITTER_LINK2 = `https://twitter.com/${TWITTER_HANDLE2}`;
 const OPENSEA_LINK = 'https://testnets.opensea.io/collection/100nftchads-cboo7fo8us';
 const TOTAL_MINT_COUNT = 100;
 
-
-const CONTRACT_ADDRESS = "0x3877EA02b1993ABABfFE10A3352a11E52544Fe3a";
+const CONTRACT_ADDRESS = "0x4F422B0D665F48Df15d56ad5aAc6787F846Ac3F4";
 
 const App = () => {
 
