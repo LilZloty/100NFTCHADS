@@ -19,7 +19,6 @@ const CONTRACT_ADDRESS = "0x4F422B0D665F48Df15d56ad5aAc6787F846Ac3F4";
 const App = () => {
 
     const [currentAccount, setCurrentAccount] = useState("");
-    const [nftsMinted, setNftsMinted] = useState(0);
     const [numberOFNFTs, setnumberOFNFTs] = useState("");
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
@@ -70,30 +69,7 @@ const App = () => {
   }
 
 
-  const getTotalNFTsMintedSoFar = async () => {
-    try {
-         const { ethereum } = window;
-   
-         if (ethereum) {
-           const provider = new ethers.providers.Web3Provider(ethereum);
-           const signer = provider.getSigner();
-           const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myEpicNft.abi, signer);
-   
-           console.log("Going to pop wallet now to pay gas...")
-           let numberOFNFTs = await connectedContract.getTotalNFTsMintedSoFar();
-           console.log('returnedvalue is');
-           console.log(parseInt(numberOFNFTs, 10));
-           setnumberOFNFTs(parseInt(numberOFNFTs, 10));
-           console.log('numberOFNFTs recuperated');
-   
-         } else {
-           console.log("Ethereum object doesn't exist!");
-         }
-       } catch (error) {
-         console.log(error)
-       }
-
-
+  
 
   // Setup our listener.
   const setupEventListener = async () => {
@@ -112,7 +88,6 @@ const App = () => {
           console.log(from, tokenId.toNumber())
           alert(`Hey there! We've minted your NFT and sent it to your wallet. It may be blank right now. It can take a max of 10 min to show up on OpenSea. Here's the link: https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`)
         })
-getTotalMinted();   
         console.log("Setup event listener!")
 
       } else {
@@ -149,6 +124,31 @@ getTotalMinted();
   }
 
 
+  const getTotalNFTsMintedSoFar = async () => {
+    try {
+         const { ethereum } = window;
+   
+         if (ethereum) {
+           const provider = new ethers.providers.Web3Provider(ethereum);
+           const signer = provider.getSigner();
+           const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myEpicNft.abi, signer);
+   
+           console.log("Going to pop wallet now to pay gas...")
+           let numberOFNFTs = await connectedContract.getTotalNFTsMintedSoFar();
+           console.log('returnedvalue is');
+           console.log(parseInt(numberOFNFTs, 10));
+           setnumberOFNFTs(parseInt(numberOFNFTs, 10));
+           console.log('numberOFNFTs recuperated');
+   
+         } else {
+           console.log("Ethereum object doesn't exist!");
+         }
+       } catch (error) {
+         console.log(error)
+       }
+
+      }
+
   useEffect(() => {
         checkIfWalletIsConnected();
 	       getTotalNFTsMintedSoFar();
@@ -167,13 +167,6 @@ getTotalMinted();
     </button>
   )
 
- const renderTotalMinted = () => {
-    return (
-      <div className="mintCountContainer">
-        <div className="mintCountBadge">{`Minted: ${numberOFNFTs} / ${TOTAL_MINT_COUNT}`}</div>
-      </div>
-    )
-  }
 
 
   return (
@@ -187,7 +180,6 @@ getTotalMinted();
       <div className="container">
         <div className="header-container">
         
-  
 
   
   
@@ -207,7 +199,7 @@ getTotalMinted();
         </div>
 
   
-        <p className="nftcount"> {renderTotalMinted()} </p>
+        <p className="nftcount"> NFT MINTED {numberOFNFTs} </p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
