@@ -226,7 +226,7 @@ const App = () => {
         </div>
 
   
-        <p className="nftcount"> NFT MINTED {numberOFNFTs} </p>
+        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
