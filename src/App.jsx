@@ -144,7 +144,10 @@ getTotalMinted();
   }
 
 
-  
+  useEffect(() => {
+        checkIfWalletIsConnected();
+    }, [])
+
 
   const renderNotConnectedContainer = () => (
     <button onClick={connectWallet} className="cta-button connect-wallet-button">
