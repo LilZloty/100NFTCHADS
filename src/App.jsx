@@ -70,25 +70,30 @@ const App = () => {
   }
 
 
-
-
-  const getTotalMinted = async () => {
+  const getTotalNFTsMintedSoFar = async () => {
     try {
-      const { ethereum } = window;
-      if (ethereum) {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
-        const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myEpicNft.abi, signer);
-        console.log('Going to pop wallet now to pay gas...');
-        const nftsMinted = await connectedContract.getTotalNFTsMintedSoFar();
-        setNftsMinted(nftsMinted);
-      } else {
-        console.log("Ethereum object doesn't exist!");
-      }
-    } catch (err) {
-      console.log(err)
-    }
-  }
+         const { ethereum } = window;
+   
+         if (ethereum) {
+           const provider = new ethers.providers.Web3Provider(ethereum);
+           const signer = provider.getSigner();
+           const connectedContract = new ethers.Contract(CONTRACT_ADDRESS, myEpicNft.abi, signer);
+   
+           console.log("Going to pop wallet now to pay gas...")
+           let numberOFNFTs = await connectedContract.getTotalNFTsMintedSoFar();
+           console.log('returnedvalue is');
+           console.log(parseInt(numberOFNFTs, 10));
+           setnumberOFNFTs(parseInt(numberOFNFTs, 10));
+           console.log('numberOFNFTs recuperated');
+   
+         } else {
+           console.log("Ethereum object doesn't exist!");
+         }
+       } catch (error) {
+         console.log(error)
+       }
+
+
 
   // Setup our listener.
   const setupEventListener = async () => {
@@ -167,7 +172,7 @@ getTotalMinted();
  const renderTotalMinted = () => {
     return (
       <div className="mintCountContainer">
-        <div className="mintCountBadge">{`Minted: ${nftsMinted} / ${TOTAL_MINT_COUNT}`}</div>
+        <div className="mintCountBadge">{`Minted: ${numberOFNFTs} / ${TOTAL_MINT_COUNT}`}</div>
       </div>
     )
   }
