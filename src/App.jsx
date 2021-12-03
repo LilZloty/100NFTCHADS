@@ -4,7 +4,9 @@ import buildspacelogo from './favicon.ico';
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
 import myEpicNft from './utils/MyEpicNFT.json';
-import {utils} from "ethers"
+import {utils} from "ethers";
+import Sound from 'react-sound';
+import SongAmericanPsycho from './new-order-true-faith-american-psycho.mp3';
 
 
 const TWITTER_HANDLE2 = '_buildspace';
@@ -21,6 +23,7 @@ const App = () => {
     const [currentAccount, setCurrentAccount] = useState("");
     const [numberOFNFTs, setnumberOFNFTs] = useState("");
     const [nftsMinted, setNftsMinted] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
       const { ethereum } = window;
@@ -196,6 +199,27 @@ const App = () => {
     )
   }
 
+
+  const PlaySound = ( 
+    HandleSongLoading,
+    handleSongPlaying,
+    handleSongFinishedPlaying
+    ) => {
+    return (
+      <div className="">
+      <button onClick={() => setIsPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Stop'}</button>
+      <sound 
+            url={SongAmericanPsycho}
+            playStatus={ isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
+            playFromPosition={300 }
+            onLoading={this.handleSongLoading}
+            onPlaying={this.handleSongPlaying}
+            onFinishedPlaying={this.handleSongFinishedPlaying}
+      />
+         </div>
+    );
+  };
+
   return (
     <div className="App">
     <header className="sc-gKAaRy kslzvN"><div className="sc-fujyAs eysHZq"><a className="header-link" href="/"><span className="sc-kEqXSa jnaHXn">100NFTCHADS</span></a>
@@ -225,8 +249,7 @@ const App = () => {
           
         </div>
 
-  
-        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
+       <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
