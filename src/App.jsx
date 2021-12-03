@@ -205,20 +205,19 @@ const App = () => {
     handleSongPlaying,
     handleSongFinishedPlaying
     ) => {
-    return (
-      <div className="">
-      <button onClick={() => setIsPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Stop'}</button>
-      <sound 
-            url={SongAmericanPsycho}
-            playStatus={ isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-            playFromPosition={300 }
+      return (
+        <div className="">
+          <button onClick={() => setIsPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Stop'}</button>
+          <sound
+            url="SongAmericanPsycho"
+            playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
+            playFromPosition={100}
             onLoading={this.handleSongLoading}
             onPlaying={this.handleSongPlaying}
-            onFinishedPlaying={this.handleSongFinishedPlaying}
-      />
-         </div>
-    );
-  };
+            onFinishedPlaying={this.handleSongFinishedPlaying} />
+        </div>
+      )
+    }
 
   return (
     <div className="App">

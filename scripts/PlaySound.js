@@ -8,7 +8,7 @@
           <sound 
                 url={SongAmericanPsycho}
                 playStatus={ isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-                playFromPosition={300 }
+                playFromPosition={100 }
                 onLoading={this.handleSongLoading}
                 onPlaying={this.handleSongPlaying}
                 onFinishedPlaying={this.handleSongFinishedPlaying}
