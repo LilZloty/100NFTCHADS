@@ -986,6 +986,9 @@ color: white;
 
 }
 
-a.sc-jrsJWt dCEuUV{
-text-transform: uppercase;
-    }
+
+    a.sc-jrsJWt dCEuUV{
+      text-transform: uppercase;
+      text-decoration: none;
+      color:rgb(255, 5, 84);
+          }
