@@ -218,7 +218,7 @@ const App = () => {
       />
          </div>
     );
-  }
+  };
 
   return (
     <div className="App">
