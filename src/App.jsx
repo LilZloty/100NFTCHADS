@@ -201,9 +201,6 @@ const App = () => {
 
 
   const renderPlaySound = ( 
-    HandleSongLoading,
-    handleSongPlaying,
-    handleSongFinishedPlaying
     ) => {
       return (
         <div className="">
