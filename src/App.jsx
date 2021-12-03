@@ -7,7 +7,7 @@ import myEpicNft from './utils/MyEpicNFT.json';
 import {utils} from "ethers";
 import Sound from 'react-sound';
 import SongAmericanPsycho from './new-order-true-faith-american-psycho.mp3';
-import PlaySound from 'scripts/PlaySound.js';
+
 
 const TWITTER_HANDLE2 = '_buildspace';
 const TWITTER_HANDLE = 'elKingRagnar';
@@ -231,7 +231,15 @@ const App = () => {
         </div>
         
         <div>
-        <Sound />
+        <Sound 
+            url={SongAmericanPsycho}
+            playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
+            playFromPosition={100}
+            onLoading={this.handleSongLoading}
+            onPlaying={this.handleSongPlaying}
+            onFinishedPlaying={this.handleSongFinishedPlaying}
+
+        />
         
         
         {PlaySound()}
