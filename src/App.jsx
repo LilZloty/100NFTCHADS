@@ -174,6 +174,7 @@ const App = () => {
   useEffect(() => {
         checkIfWalletIsConnected();
 	       getTotalNFTsMintedSoFar();
+         PlaySound();
     }, [])
 
 
