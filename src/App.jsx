@@ -200,7 +200,7 @@ const App = () => {
   }
 
 
-  const PlaySound = ( 
+  const renderPlaySound = ( 
     HandleSongLoading,
     handleSongPlaying,
     handleSongFinishedPlaying
@@ -246,9 +246,9 @@ const App = () => {
   <span aria-hidden className="cybr-btn__tag">007</span>
   
 </button>
-          
+           <div>{renderPlaySound()}</div>
         </div>
-        <div>{PlaySound}test</div>
+       
        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
