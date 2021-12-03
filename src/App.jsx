@@ -200,22 +200,6 @@ const App = () => {
   }
 
 
-  const renderPlaySound = ( 
-    ) => {
-      return (
-        <div className="">
-          <button onClick={() => setIsPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Stop'}</button>
-          <sound
-            url="SongAmericanPsycho"
-            playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-            playFromPosition={100}
-            onLoading={this.handleSongLoading}
-            onPlaying={this.handleSongPlaying}
-            onFinishedPlaying={this.handleSongFinishedPlaying} />
-        </div>
-      )
-    }
-
   return (
     <div className="App">
     <header className="sc-gKAaRy kslzvN"><div className="sc-fujyAs eysHZq"><a className="header-link" href="/"><span className="sc-kEqXSa jnaHXn">100NFTCHADS</span></a>
@@ -245,7 +229,9 @@ const App = () => {
            
         </div>
         
-        <div>{renderPlaySound()}</div>
+        <div>{renderPlaySound()}
+        
+        </div>
        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
