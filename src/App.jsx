@@ -246,9 +246,10 @@ const App = () => {
   <span aria-hidden className="cybr-btn__tag">007</span>
   
 </button>
-           <div>{renderPlaySound()}</div>
+           
         </div>
-       
+        
+        <div>{renderPlaySound()}</div>
        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
