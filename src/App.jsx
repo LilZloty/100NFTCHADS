@@ -229,7 +229,7 @@ const App = () => {
            
         </div>
         
-        <div>{renderPlaySound()}
+        <div>{PlaySound()}
         
         </div>
        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
