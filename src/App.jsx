@@ -218,7 +218,7 @@ const App = () => {
       />
          </div>
     );
-  };
+  }
 
   return (
     <div className="App">
@@ -248,7 +248,7 @@ const App = () => {
 </button>
           
         </div>
-        <div>{PlaySound()}</div>
+        <div>{PlaySound}</div>
        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
