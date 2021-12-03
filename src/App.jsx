@@ -174,7 +174,7 @@ const App = () => {
   useEffect(() => {
         checkIfWalletIsConnected();
 	       getTotalNFTsMintedSoFar();
-         PlaySound();
+        
     }, [])
 
 
@@ -232,7 +232,7 @@ const App = () => {
         
         <div>
         <Sound 
-            url={SongAmericanPsycho}
+          url={SongAmericanPsycho}
             playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
             playFromPosition={100}
             onLoading={this.handleSongLoading}
@@ -242,7 +242,7 @@ const App = () => {
         />
         
         
-        {PlaySound()}
+        
         
         </div>
        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
