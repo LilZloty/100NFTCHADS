@@ -180,20 +180,7 @@ const App = () => {
 	       getTotalNFTsMintedSoFar();
     }, [])
 
- const PlaySound = ( 
-        ) => {
-      return (
-          <div>
-          <button onClick={() => setIsPlaying(!isPlaying)}>{!isPlaying ? 'Play' : 'Stop'}</button>
-          <sound
-            url={SongAmericanPsycho}
-            playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-            playFromPosition={100}
-             />
-    </div>
-      );
-    };
-     
+
 
   const renderNotConnectedContainer = () => (
     <button onClick={connectWallet} className="cta-button connect-wallet-button">
