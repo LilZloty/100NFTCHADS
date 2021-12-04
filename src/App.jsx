@@ -24,6 +24,7 @@ const App = () => {
     const [numberOFNFTs, setnumberOFNFTs] = useState("");
     const [nftsMinted, setNftsMinted] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [PlaySound, setPlaySound] = useState(false);
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
       const { ethereum } = window;
@@ -171,7 +172,14 @@ const App = () => {
 
       }
 
-      const PlaySound = ( 
+     
+  useEffect(() => {
+        checkIfWalletIsConnected();
+	       getTotalNFTsMintedSoFar();
+         PlaySound();
+    }, [])
+
+ const PlaySound = ( 
         HandleSongLoading,
         handleSongPlaying,
         handleSongFinishedPlaying
@@ -187,15 +195,9 @@ const App = () => {
             onPlaying={this.handleSongPlaying}
             onFinishedPlaying={this.handleSongFinishedPlaying} />
     </div>
-      )
-    }
+      );
+    };
      
-  useEffect(() => {
-        checkIfWalletIsConnected();
-	       getTotalNFTsMintedSoFar();
-        
-    }, [])
-
 
   const renderNotConnectedContainer = () => (
     <button onClick={connectWallet} className="cta-button connect-wallet-button">
@@ -260,7 +262,7 @@ const App = () => {
 
         />
         
-        {PlaySound}
+        {setPlaySound}
         
         
         
