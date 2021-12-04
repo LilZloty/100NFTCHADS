@@ -21,7 +21,6 @@ const App = () => {
     const [currentAccount, setCurrentAccount] = useState("");
     const [numberOFNFTs, setnumberOFNFTs] = useState("");
     const [nftsMinted, setNftsMinted] = useState(0);
-    const {Howl, Howler} = require('howler');
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
       const { ethereum } = window;
