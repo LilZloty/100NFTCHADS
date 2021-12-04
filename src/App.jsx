@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import myEpicNft from './utils/MyEpicNFT.json';
 import {utils} from "ethers";
 import Sound from 'react-sound';
+import {Howl, Howler} from 'howler';
 import SongAmericanPsycho from './new-order-true-faith-american-psycho.mp3';
 
 
@@ -25,6 +26,7 @@ const App = () => {
     const [nftsMinted, setNftsMinted] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [PlaySound, setPlaySound] = useState(false);
+    const {Howl, Howler} = require('howler');
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
       const { ethereum } = window;
