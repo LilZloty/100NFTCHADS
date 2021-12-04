@@ -172,7 +172,9 @@ const App = () => {
       }
 
       const PlaySound = ( 
-        
+        HandleSongLoading,
+        handleSongPlaying,
+        handleSongFinishedPlaying
         ) => {
       return (
           <div>
