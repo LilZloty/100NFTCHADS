@@ -25,7 +25,6 @@ const App = () => {
     const [numberOFNFTs, setnumberOFNFTs] = useState("");
     const [nftsMinted, setNftsMinted] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [PlaySound, setPlaySound] = useState(false);
     const {Howl, Howler} = require('howler');
     const [isMinting, setIsMinting] = useState(false);
     const checkIfWalletIsConnected = async () => {
@@ -204,6 +203,11 @@ const App = () => {
     )
   }
 
+  var sound = new Howl({
+    src: ['new-order-true-faith-american-psycho.mp3']
+  });
+  
+  sound.play();
 
   return (
     <div className="App">
@@ -235,17 +239,6 @@ const App = () => {
         </div>
         
         <div>
-        <Sound 
-          url={SongAmericanPsycho}
-            playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
-            playFromPosition={100}
-            
-
-        />
-        
-       
-        
-        
         
         </div>
        <p className="nftcount"> NFT MINTED {numberOFNFTs}/100</p>
